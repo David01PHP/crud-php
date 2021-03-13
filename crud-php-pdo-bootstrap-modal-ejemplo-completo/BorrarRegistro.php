@@ -2,14 +2,14 @@
 	session_start();
 	include_once('dbconect.php');
 
-	if(isset($_GET['borrar'])){
+	if(isset($_GET['id'])){
 
 		$database = new Connection();
 		$db = $database->open();
 		try{
-			$id = $_GET['id_vid'];
+
 			
-			$sql = "DELETE FROM videojuegos WHERE id_vid = '$id'";
+			$sql = " DELETE FROM videojuegos WHERE id_vid = '".$_GET['id'].";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'videojuego Borrado' : 'Hubo un error al borrar videojuego';
 		}
